@@ -1,0 +1,24 @@
+<h1>Create a book</h1>
+<form class="material-form" [formGroup]="bookForm" (submit)="createBook()">
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="You can change this later!" formControlName="title">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Main Idea</mat-label>
+    <textarea matInput placeholder="What is your idea in a few sentences?" formControlName="mainIdea"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Genre</mat-label>
+    <mat-select placeholder="Genre" formControlName="genre">
+      <mat-option *ngFor="let genre of genres" [value]="genre.value">{{ genre.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Storytelling Mode</mat-label>
+    <mat-select placeholder="Storytelling Mode" formControlName="viewpoint">
+      <mat-option *ngFor="let viewpoint of viewpoints" [value]="viewpoint.value">{{ viewpoint.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-stroked-button type="submit" [disabled]="!bookForm.valid">Get started</button>
+</form>

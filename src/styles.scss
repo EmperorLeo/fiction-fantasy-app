@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './colors.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.ff-bookshelf {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border: 3px solid $ff-brown;
+  height: 180px;
+}
+
+.ff-bookshelf-button {
+  border: 3px solid $ff-gray;
+  height: 174px;
+  width: 174px;
+  position: absolute;
+  right: 0;
+  background-color: $ff-beige;
+}
+
+.material-form {
+  mat-form-field {
+    width: 100%;
+  }
+}
