@@ -20,5 +20,5 @@
       <mat-option *ngFor="let viewpoint of viewpoints" [value]="viewpoint.value">{{ viewpoint.name }}</mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-stroked-button type="submit" [disabled]="!bookForm.valid">Get started</button>
+  <button mat-stroked-button type="submit" [routerLink]="['./editor]'" [disabled]="!bookForm.valid">Get started</button>
 </form>

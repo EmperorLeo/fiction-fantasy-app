@@ -45,6 +45,10 @@ export class NewBookComponent implements OnInit {
     });
   }
 
+  redirect() {
+    
+  }
+
   createBook() {
     let book = <Book>this.bookForm.value;
     this.saving = true;
