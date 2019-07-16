@@ -1,4 +1,9 @@
 <div class="ff-bookshelf">
+  <div class="ff-bookshelf-container">
+    <div class="ff-bookshelf-book" *ngFor="let book of books$ | async">
+      {{ book.title }}
+    </div>
+  </div>
   <div class="ff-bookshelf-button" matRipple [matRippleColor]="" (click)="onCreateBookClick()">
     <span>+</span>New Book
   </div>
