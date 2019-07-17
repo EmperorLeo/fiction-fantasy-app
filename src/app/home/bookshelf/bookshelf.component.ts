@@ -26,7 +26,7 @@ export class BookshelfComponent implements OnInit {
       width: '500px'
     });
     dialogRef.afterClosed().subscribe(bookId => {
-      this.router.navigate(["bookeditor", bookId]);
+      this.router.navigate(["editor", bookId]);
     });
   }
 

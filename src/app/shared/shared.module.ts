@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule, MatInputModule, MatFormFieldModule, MatOptionModule, MatSelectModule, MatButtonModule, MatRippleModule } from '@angular/material'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -13,7 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatRippleModule
+    MatSidenavModule,
+    MatRippleModule,
+    FlexLayoutModule
   ],
   exports: [
     MatDialogModule,
@@ -23,7 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatRippleModule
+    MatSidenavModule,
+    MatRippleModule,
+    FlexLayoutModule
   ],
   declarations: []
 })

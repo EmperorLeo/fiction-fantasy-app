@@ -3,11 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: './home/home.module#HomeModule',
-    canActivate: [AuthGuard]
-  }
+  { path: 'home', loadChildren: './home/home.module#HomeModule' },
+  { path: 'editor', loadChildren: './editor/editor.module#EditorModule'},
+  { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({
