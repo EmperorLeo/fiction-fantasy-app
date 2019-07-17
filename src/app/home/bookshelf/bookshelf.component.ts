@@ -4,6 +4,7 @@ import { NewBookComponent } from './new-book/new-book.component';
 import { BookService } from '../../core/book.service';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/core/models/book.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bookshelf',
@@ -12,17 +13,20 @@ import { Book } from 'src/app/core/models/book.model';
 })
 export class BookshelfComponent implements OnInit {
 
-  books$: Observable<Book[]>
+  books$: Observable<Book[]>;
 
-  constructor(private dialog: MatDialog, private bookService: BookService) { }
+  constructor(private dialog: MatDialog, private bookService: BookService, private router: Router) { }
 
   ngOnInit() {
-    this.books$ = this.bookService.getBooksForUser('c7d52279-f39e-4c11-9cab-567821251d65');
+    this.books$ = this.bookService.getBooksForUser();
   }
 
   onCreateBookClick() {
-    this.dialog.open(NewBookComponent, {
+    const dialogRef = this.dialog.open(NewBookComponent, {
       width: '500px'
+    });
+    dialogRef.afterClosed().subscribe(bookId => {
+      this.router.navigate(["bookeditor", bookId]);
     });
   }
 
