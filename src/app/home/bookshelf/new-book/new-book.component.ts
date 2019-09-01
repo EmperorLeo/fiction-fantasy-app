@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../../../core/book.service';
 import { MatDialogRef } from '@angular/material';
 import { Book } from 'src/app/core/models/book.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-book',
@@ -32,7 +33,12 @@ export class NewBookComponent implements OnInit {
   ];
   saving = false;
 
-  constructor(private formBuilder: FormBuilder, private bookService: BookService, private dialogRef: MatDialogRef<NewBookComponent>) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private bookService: BookService,
+    private router: Router,
+    private dialogRef: MatDialogRef<NewBookComponent>
+  ) { }
 
   bookForm: FormGroup;
 
@@ -52,9 +58,9 @@ export class NewBookComponent implements OnInit {
   createBook() {
     let book = <Book>this.bookForm.value;
     this.saving = true;
-    this.bookService.createBook('c7d52279-f39e-4c11-9cab-567821251d65', book).subscribe(result =>
-    {
+    this.bookService.createBook('c7d52279-f39e-4c11-9cab-567821251d65', book).subscribe(result => {
       this.dialogRef.close(book);
+      this.router.navigate(['./editor']);
     }, error => {
       this.saving = false;
       console.log('ERRORS: ', error);
