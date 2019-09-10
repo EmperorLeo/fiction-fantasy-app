@@ -1,10 +1,13 @@
-<div class="ff-bookshelf">
+<div class="ff-bookshelf mat-card">
   <div class="ff-bookshelf-container">
     <div class="ff-bookshelf-book" *ngFor="let book of books$ | async">
-      {{ book.title }}
+      <app-book [title]="book.title" (click)="navigateBook(book)"></app-book>
     </div>
   </div>
   <div class="ff-bookshelf-button" matRipple [matRippleColor]="" (click)="onCreateBookClick()">
-    <span>+</span>New Book
+    <div class="new-book-wrapper">
+      <fa-icon class="plus" [icon]="plusIcon" size="2x"></fa-icon>
+      <fa-icon class="new-book" [icon]="bookIcon" size="6x"></fa-icon>
+    </div>
   </div>
 </div>

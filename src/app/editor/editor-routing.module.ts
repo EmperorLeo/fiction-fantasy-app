@@ -4,11 +4,15 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 
 const routes: Routes = [
-    { path: '', component: LayoutComponent, children: [
+    // TODO: regex the following path so you cant get to /editor/introduction/introduction
+    { path: ':id', component: LayoutComponent, children: [
         { path: 'introduction', component: IntroductionComponent },
         { path: '', pathMatch: 'full', redirectTo: 'introduction' },
         { path: '**', pathMatch: 'full', redirectTo: 'introduction' }
-    ]}
+    ]},
+    {
+      path: '', redirectTo: '/'
+    }
 ];
 
 @NgModule({

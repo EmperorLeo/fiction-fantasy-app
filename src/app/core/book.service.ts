@@ -3,7 +3,7 @@ import { environment } from './../../environments/environment';
 import { Book } from './models/book.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { AuthService } from './auth.service';
 import { flatMap, map } from 'rxjs/operators';
 
@@ -24,6 +24,12 @@ export class BookService {
     return this.authService.getUserCredentials().pipe(
       flatMap(uc =>  this.httpClient.get<PagedList<Book>>(`${environment.apiUrl}/api/1.0/users/${uc.userId}/books`, { headers: { Authorization: `Bearer ${uc.accessToken}` } })),
       map(res => res.items)
+    );
+  }
+
+  getBook(bookId: string) {
+    return this.authService.getUserCredentials().pipe(
+      flatMap(uc =>  this.httpClient.get<Book>(`${environment.apiUrl}/api/1.0/books/${bookId}`, { headers: { Authorization: `Bearer ${uc.accessToken}` } }))
     );
   }
 }

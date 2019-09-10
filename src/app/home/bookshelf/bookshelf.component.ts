@@ -5,6 +5,8 @@ import { BookService } from '../../core/book.service';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/core/models/book.model';
 import { Router } from '@angular/router';
+import { faBookOpen, faPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-bookshelf',
@@ -14,6 +16,8 @@ import { Router } from '@angular/router';
 export class BookshelfComponent implements OnInit {
 
   books$: Observable<Book[]>;
+  bookIcon = faBookOpen;
+  plusIcon = faPlus;
 
   constructor(private dialog: MatDialog, private bookService: BookService, private router: Router) { }
 
@@ -28,6 +32,10 @@ export class BookshelfComponent implements OnInit {
     dialogRef.afterClosed().subscribe(bookId => {
       this.router.navigate(["editor", bookId]);
     });
+  }
+
+  navigateBook(book: Book) {
+    this.router.navigate(["editor", book.id])
   }
 
 }

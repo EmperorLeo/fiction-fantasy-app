@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { SharedModule } from '../shared/shared.module';
 import { NewBookComponent } from './bookshelf/new-book/new-book.component';
+import { BookComponent } from './bookshelf/book/book.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { NewBookComponent } from './bookshelf/new-book/new-book.component';
     HomeRoutingModule,
     SharedModule
   ],
-  declarations: [HomeComponent, BookshelfComponent, NewBookComponent],
+  declarations: [HomeComponent, BookshelfComponent, NewBookComponent, BookComponent],
   entryComponents: [ NewBookComponent ]
 })
 export class HomeModule { }

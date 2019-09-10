@@ -1,8 +1,16 @@
-<mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
-    <button mat-button>Introduction</button>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-button (click)="brandClicked()">
+      <div class="ff-brand">
+        <img src="assets/book-theme.svg">
+        <span>Fiction Fantasy</span>
+      </div>
+    </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span>
+      <!-- TODO: title is being fetched too early, fix pls -->
+      {{ (book$ | async).title }}
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
